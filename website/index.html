@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>Weather Journal App</title>
+</head>
+
+<body>
+    <header id="header" class="section-margin">
+        <div class="container">
+            <div class="logo-container">
+                <img src="images/WJlogo.svg" alt="The Weather Journal Logo">
+            </div>
+            <h1 class="sr-only">The Weather Journal</h1>
+        </div>
+    </header>
+    <main>
+        <div id="intro-message" class="container section-margin">
+            <button class="close-btn">
+                <span class="sr-only">Cancel</span>
+                <img aria-hidden="true" src="images/close_icon.svg" alt="close">
+            </button>
+            <h2>Hi there,</h2>
+            <p>The Weather Journal is just a simple way to express how you feel at the start of your day and tells you what's the weather like in your area.</p>
+            <p>Have a great day!</p>
+        </div>
+        <div class="container section-margin">
+            <button class="btn-primary" id="add-entry">
+                <img src="images/plus_icon.svg" alt="new">
+                <span>New Entry</span>
+            </button>
+        </div>
+        <section id="new-entry" class="container section-margin">
+            <button class="close-btn">
+                <span class="sr-only">Cancel</span>
+                <img aria-hidden="true" src="images/close_icon.svg" alt="close">
+            </button>
+
+            <h2>New Entry</h2>
+            <form>
+                <div class="form-group">
+                    <label for="zip-code">Zipcode</label>
+                    <input type="text" id="zip-code" required>
+                </div>
+                <div class="form-group">
+                    <label for="feeling-today">How are you feeling today?</label>
+                    <textarea name="feeling-today" id="feeling-today" cols="30" rows="10" required></textarea>
+                </div>
+                <button class="btn-primary" type="button" id="generate">Post</button>
+            </form>
+        </section>
+
+        <section id="entryHolder" class="container section-margin">
+            <h2>Most Recent Entry</h2>
+            <div class="entry">
+                <div class="flex-row">
+                    <div class="date-box">
+                        <span><img src="images/calendar_icon.svg" alt="calendar" aria-hidden="true"></span>
+                        <span id="date" class="entry-date">12.5.2022</span>
+                    </div>
+                    <div class="weather-box">
+                        <div class="icon-circle">
+                            <svg id="sunny_icon" xmlns="http://www.w3.org/2000/svg" width="29.419" height="29.949" viewBox="0 0 29.419 29.949">
+                                <path id="Path_26" data-name="Path 26" d="M231.2,374.722a6.361,6.361,0,1,1,6.361-6.361,6.361,6.361,0,0,1-6.361,6.361Zm0-11.662a5.3,5.3,0,1,0,5.3,5.3A5.3,5.3,0,0,0,231.2,363.06Z" transform="translate(-216.096 -353.254)" fill="#3f3d56" />
+                                <path id="Path_27" data-name="Path 27" d="M235.979,352.656a.53.53,0,0,1-.53-.53v-6.1a.53.53,0,1,1,1.06,0v6.1A.53.53,0,0,1,235.979,352.656Z" transform="translate(-221.08 -345.5)" fill="#3f3d56" />
+                                <path id="Path_28" data-name="Path 28" d="M214.968,373.667h-6.1a.53.53,0,0,1,0-1.06h6.1a.53.53,0,0,1,0,1.06Z" transform="translate(-208.343 -358.238)" fill="#3f3d56" />
+                                <path id="Path_29" data-name="Path 29" d="M256.968,373.667h-6.1a.53.53,0,1,1,0-1.06h6.1a.53.53,0,1,1,0,1.06Z" transform="translate(-228.079 -358.238)" fill="#3f3d56" />
+                                <path id="Path_30" data-name="Path 30" d="M250.557,360.537a.53.53,0,0,1-.369-.911l2.553-2.477a.53.53,0,0,1,.738.761l-2.553,2.477A.528.528,0,0,1,250.557,360.537Z" transform="translate(-227.931 -350.904)" fill="#3f3d56" />
+                                <path id="Path_31" data-name="Path 31" d="M218.925,360.537a.528.528,0,0,1-.369-.15L216,357.911a.53.53,0,1,1,.738-.761l2.553,2.477a.53.53,0,0,1-.369.911Z" transform="translate(-211.867 -350.904)" fill="#3f3d56" />
+                                <path id="Path_32" data-name="Path 32" d="M217.373,387.729a.53.53,0,0,1-.38-.9l2.553-2.629a.53.53,0,1,1,.761.739l-2.553,2.629A.529.529,0,0,1,217.373,387.729Z" transform="translate(-212.337 -363.611)" fill="#3f3d56" />
+                                <path id="Path_33" data-name="Path 33" d="M253.64,388.26a.527.527,0,0,1-.379-.16l-3.083-3.159a.53.53,0,0,1,.759-.74l3.083,3.159a.53.53,0,0,1-.379.9Z" transform="translate(-227.931 -363.611)" fill="#3f3d56" />
+                                <path id="Path_34" data-name="Path 34" d="M235.979,395.656a.53.53,0,0,1-.53-.53v-6.1a.53.53,0,1,1,1.06,0v6.1A.53.53,0,0,1,235.979,395.656Z" transform="translate(-221.08 -365.707)" fill="#3f3d56" />
+                            </svg>
+                        </div>
+                        <div class="icon-circle">
+                            <svg id="cloudy_icon" xmlns="http://www.w3.org/2000/svg" width="29.888" height="18.553" viewBox="0 0 29.888 18.553">
+                                <path id="Path_35" data-name="Path 35" d="M345.459,376.553H327.764a6.891,6.891,0,1,1,0-13.783h1.353A8.326,8.326,0,0,1,336.612,358a8.41,8.41,0,0,1,8.321,7.951h.527a5.3,5.3,0,1,1,0,10.6Zm-17.695-12.722a5.831,5.831,0,1,0,0,11.663h17.695a4.241,4.241,0,1,0,0-8.482h-1.041a.53.53,0,0,1-.53-.53,7.358,7.358,0,0,0-7.276-7.421,7.275,7.275,0,0,0-6.666,4.45.53.53,0,0,1-.487.321Z" transform="translate(-320.872 -358)" fill="#3f3d56" />
+                            </svg>
+                        </div>
+                        <div class="icon-circle active">
+                            <svg id="p_cloudy_icon" xmlns="http://www.w3.org/2000/svg" width="29.888" height="22.264" viewBox="0 0 29.888 22.264">
+                                <path id="Path_36" data-name="Path 36" d="M471.354,363.221l-.413-.976a5.3,5.3,0,1,0-6.965-6.905l-.98-.4a6.362,6.362,0,1,1,8.358,8.286Z" transform="translate(-447.558 -350.999)" fill="#3f3d56" />
+                                <path id="Path_37" data-name="Path 37" d="M458.459,376.553H440.764a6.891,6.891,0,1,1,0-13.783h1.353A8.326,8.326,0,0,1,449.612,358a8.41,8.41,0,0,1,8.321,7.951h.527a5.3,5.3,0,1,1,0,10.6Zm-17.695-12.722a5.831,5.831,0,1,0,0,11.663h17.695a4.241,4.241,0,1,0,0-8.482h-1.041a.53.53,0,0,1-.53-.53,7.358,7.358,0,0,0-7.277-7.421,7.275,7.275,0,0,0-6.665,4.45.53.53,0,0,1-.487.321Z" transform="translate(-433.872 -354.289)" fill="#3f3d56" />
+                            </svg>
+                        </div>
+                        <div class="icon-circle">
+                            <svg id="rainy_icon" xmlns="http://www.w3.org/2000/svg" width="29.888" height="25.612" viewBox="0 0 29.888 25.612">
+                                <path id="Path_38" data-name="Path 38" d="M571.459,371.553h-2.128a.53.53,0,1,1,0-1.06h2.128a4.241,4.241,0,1,0,0-8.482h-1.041a.53.53,0,0,1-.53-.53,7.358,7.358,0,0,0-7.276-7.421,7.275,7.275,0,0,0-6.665,4.45.53.53,0,0,1-.487.321h-1.695a5.831,5.831,0,1,0,0,11.663h1.643a.53.53,0,0,1,0,1.06h-1.643a6.891,6.891,0,1,1,0-13.783h1.353A8.326,8.326,0,0,1,562.612,353a8.41,8.41,0,0,1,8.321,7.951h.527a5.3,5.3,0,1,1,0,10.6Z" transform="translate(-546.872 -353)" fill="#3f3d56" />
+                                <path id="Path_39" data-name="Path 39" d="M575.93,385.973a.53.53,0,0,1-.53-.53v-6.1a.53.53,0,0,1,1.06,0v6.1A.53.53,0,0,1,575.93,385.973Z" transform="translate(-560.278 -365.132)" fill="#3f3d56" />
+                                <path id="Path_40" data-name="Path 40" d="M568.93,391.973a.53.53,0,0,1-.53-.53v-6.1a.53.53,0,0,1,1.06,0v6.1a.53.53,0,0,1-.53.53Z" transform="translate(-556.989 -367.952)" fill="#3f3d56" />
+                                <path id="Path_41" data-name="Path 41" d="M582.93,394.973a.53.53,0,0,1-.53-.53v-6.1a.53.53,0,0,1,1.06,0v6.1A.53.53,0,0,1,582.93,394.973Z" transform="translate(-563.568 -369.361)" fill="#3f3d56" />
+                            </svg>
+                        </div>
+                        <div class="icon-circle">
+                            <svg id="snowy_icon" xmlns="http://www.w3.org/2000/svg" width="29.888" height="23.323" viewBox="0 0 29.888 23.323">
+                                <path id="Path_42" data-name="Path 42" d="M684.459,371.553h-2.128a.53.53,0,1,1,0-1.06h2.128a4.241,4.241,0,1,0,0-8.482h-1.041a.53.53,0,0,1-.53-.53,7.358,7.358,0,0,0-7.276-7.421,7.275,7.275,0,0,0-6.666,4.45.53.53,0,0,1-.487.321h-1.695a5.831,5.831,0,1,0,0,11.663h1.643a.53.53,0,1,1,0,1.06h-1.643a6.891,6.891,0,1,1,0-13.783h1.353A8.326,8.326,0,0,1,675.612,353a8.41,8.41,0,0,1,8.321,7.951h.527a5.3,5.3,0,1,1,0,10.6Z" transform="translate(-659.872 -353)" fill="#3f3d56" />
+                                <circle id="Ellipse_2" data-name="Ellipse 2" cx="1.193" cy="1.193" r="1.193" transform="translate(13.634 14.842)" fill="#3f3d56" />
+                                <circle id="Ellipse_3" data-name="Ellipse 3" cx="1.193" cy="1.193" r="1.193" transform="translate(17.609 16.432)" fill="#3f3d56" />
+                                <circle id="Ellipse_4" data-name="Ellipse 4" cx="1.193" cy="1.193" r="1.193" transform="translate(10.983 18.288)" fill="#3f3d56" />
+                                <circle id="Ellipse_5" data-name="Ellipse 5" cx="1.193" cy="1.193" r="1.193" transform="translate(15.224 20.938)" fill="#3f3d56" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div class="location-box">
+                        <span><img src="images/location_icon.svg" alt="location" aria-hidden="true"></span>
+                        <span class="entry-location"></span>
+                    </div>
+                    <div class="condition-box">
+                        Rainy
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div id="content" class="entry-box">
+                            <p>Today I woke up feeling very hungry, I ate an entire loaf of bread! I then ordered a family sized pizza and ate the entire thing. I felt very guilty after that so I ate a piece of cheese cake.</p>
+                        </div>
+                        <div class="temp-box">
+                            <span><img src="images/temp_icon.svg" alt="temperature" aria-hidden="true"></span>
+                            <span id="temp" class="entry-temp">27</span><span>&deg;</span><span>C</span>
+                        </div>
+                    </div>
+            </div>
+        </section>
+    </main>
+    <footer class="container">
+        <p>TheGailani <span id="footer-date">2022</span></p>
+    </footer>
+
+    <script src="js/app.js" defer></script>
+</body>
+
+</html>

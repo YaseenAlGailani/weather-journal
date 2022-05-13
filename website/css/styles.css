@@ -1,0 +1,205 @@
+/* ------------------
+        GENERIC 
+-------------------- */
+
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.container>*:last-child {
+    margin-bottom: 0;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #3D4456;
+    line-height: 1.75;
+    font-size: 1.125rem;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+p {
+    margin: 0 0 24px
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    line-height: 1;
+    color: #0250A3;
+    margin: 0 0 24px;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+h1 {
+    font-size: 3.25rem;
+}
+
+h2 {
+    font-size: 2.625rem;
+}
+
+.container {
+    width: 962px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    position: relative;
+}
+
+.close-btn {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 24px;
+}
+
+.close-btn img {
+    transform: rotate(0);
+    transform-origin: 50%;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-btn:hover img,
+.close-btn:focus img {
+    transform: rotate(90deg);
+}
+
+.btn-primary {
+    background-color: #0250A3;
+    border: none;
+    border-radius: 32px;
+    color: #fff;
+    line-height: 1;
+    font-weight: 500;
+    padding: 16px 32px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #002d5c;
+
+}
+
+.btn-primary:active {
+    background-color: #0250A3;
+}
+
+#add-entry img {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 2.625rem;
+    }
+
+    h2 {
+        font-size: 2.25rem;
+    }
+}
+
+/* ------------------
+        HEADER 
+-------------------- */
+
+#header .container {
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.logo-container {
+    text-align: center;
+    padding: 24px 0
+}
+
+/* ------------------
+        SECTIONS
+-------------------- */
+
+section,
+#intro-message {
+    border: solid 1px #ededed;
+    border-radius: 16px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.section-margin {
+    margin-bottom: 46px;
+}
+
+/* ------------------
+        FORM 
+-------------------- */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px
+}
+
+label {
+    margin-bottom: 8px;
+}
+
+input {
+    height: 53px;
+    border: solid 1px #ededed;
+    border-radius: 8px;
+}
+
+textarea {
+    border: solid 1px #ededed;
+    border-radius: 8px;
+}
+
+/* ------------------
+        FOOTER 
+-------------------- */
+
+footer {
+    padding-bottom: 16px;
+    color: #555;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* ------------------
+        Utils 
+-------------------- */
+
+.sr-only {
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
