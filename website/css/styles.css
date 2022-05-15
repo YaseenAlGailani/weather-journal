@@ -8,8 +8,12 @@
     box-sizing: border-box;
 }
 
-.container>*:last-child {
-    margin-bottom: 0;
+.framed>*:last-child {
+    margin-bottom: 0 !important;
+}
+
+html {
+    height: 100%;
 }
 
 html,
@@ -22,8 +26,9 @@ body {
     color: #3D4456;
     line-height: 1.75;
     font-size: 1.125rem;
-    padding-left: 16px;
-    padding-right: 16px;
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 img {
@@ -50,30 +55,55 @@ h3 {
 }
 
 h1 {
-    font-size: 3.25rem;
+    font-size: 2.25rem;
 }
 
 h2 {
-    font-size: 2.625rem;
+    font-size: 2rem;
 }
 
+
 .container {
-    width: 962px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 962px;
     margin: 0 auto;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
     position: relative;
+}
+
+.framed {
+    border: solid 1px #ededed;
+    border-radius: 16px;
+    padding: 16px;
+    position: relative;
+}
+
+.section-margin {
+    margin-bottom: 46px;
 }
 
 .close-btn {
     background-color: transparent;
     border: none;
+    border-radius: 50%;
+    width: 37px;
+    height: 37px;
+    padding: 8px;
     position: absolute;
     right: 24px;
+    box-shadow: none;
+    transform: scale(1);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-btn:active {
+    border: solid 1px #0250A3;
+    transform: scale(0.75);
 }
 
 .close-btn img {
+    vertical-align: initial;
     transform: rotate(0);
     transform-origin: 50%;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -92,17 +122,21 @@ h2 {
     line-height: 1;
     font-weight: 500;
     padding: 16px 32px;
+    box-shadow: none;
+    transform: scale(1);
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
     background-color: #002d5c;
-
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0250A3;
 }
 
 .btn-primary:active {
     background-color: #0250A3;
+    box-shadow: none;
+    transform: scale(0.95);
 }
 
 #add-entry img {
@@ -118,13 +152,17 @@ h2 {
     h2 {
         font-size: 2.25rem;
     }
+
+    .framed {
+        padding: 24px;
+    }
 }
 
 /* ------------------
         HEADER 
 -------------------- */
 
-#header .container {
+#header .framed {
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
     border-radius: 16px;
     margin-top: 16px;
@@ -133,23 +171,169 @@ h2 {
 
 .logo-container {
     text-align: center;
-    padding: 24px 0
 }
 
 /* ------------------
         SECTIONS
 -------------------- */
 
-section,
-#intro-message {
-    border: solid 1px #ededed;
-    border-radius: 16px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+#add-entry {
+    margin-bottom: 16px;
+    margin-left: auto;
 }
 
-.section-margin {
-    margin-bottom: 46px;
+/* ----GRID------- */
+
+#entryHolder .entry {
+    display: grid;
+    gap: 16px;
+    grid-template-rows: auto auto auto  auto 1fr;
+    grid-template-columns:1fr 1fr;
+}
+
+#entryHolder .date-box {
+    grid-row: 1/2;
+    grid-column: 1/3;
+}
+
+#entryHolder .weather-box {
+    grid-row: 2/3;
+    grid-column: 1/3;
+    justify-self: end;
+}
+
+#entryHolder .location-box {
+    grid-row: 3/4;
+    grid-column: 1/2;
+}
+
+#entryHolder .condition-box {
+    grid-row: 3/4;
+    grid-column: 2/3;
+    justify-self: end;
+}
+
+#entryHolder .temp-box {
+    grid-row: 4/5;
+    grid-column: 2/3;
+    justify-self: end;
+
+}
+
+#entryHolder .content-box {
+    grid-row: 5/6;
+    grid-column: 1/3;
+}
+
+
+
+@media screen and (min-width:566px) {
+
+    #entryHolder .entry {
+        display: grid;
+        gap:24px;
+        grid-template-rows: auto auto 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    #entryHolder .weather-box {
+        grid-row: 1/2;
+        grid-column: 3/5;
+        justify-self: end;
+    }
+
+    #entryHolder .location-box {
+        grid-row: 2/3;
+        grid-column: 1/3;
+    }
+
+    #entryHolder .condition-box {
+        grid-row: 2/3;
+        grid-column: 4/5;
+        justify-self: end;
+    }
+
+    #entryHolder .content-box {
+        grid-row: 3/4;
+        grid-column: 1/4;
+    }
+
+    #entryHolder .temp-box {
+        grid-row: 3/4;
+        grid-column: 4/5;
+        justify-self: end;
+    }
+}
+
+/* --------END GRID-------------- */
+
+#entryHolder span.text {
+    font-size: 1rem;
+    line-height: 1.1;
+    color: #0250A3;
+}
+
+#entryHolder .location-box{
+    display: flex;
+    align-items: center;
+    gap:8px;
+}
+
+#entryHolder #content {
+    max-width: 720px;
+    color:#0250A3;
+}
+
+.weather-box{
+    gap:24px;
+}
+
+.icon-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.icon-circle.active {
+    border-radius: 50%;
+    box-shadow: 0 0 0 6px #fff, 0 0 0 7px #4397F0;
+    background-color: #fff;
+}
+
+.icon-circle.active svg {
+    fill: #4397F0;
+}
+
+.temp-icon img {
+    margin-right: 8px;
+    vertical-align: bottom;
+    padding-top: 4px;
+}
+
+.temp-box {
+    color: #0250A3;
+}
+
+.temp-box #temp {
+    font-size: 42px;
+    line-height: 1;
+}
+
+.temp-box .deg {
+    font-size: 42px;
+    line-height: 1;
+}
+
+#new-entry img[alt="morning sky"] {
+    display: none;
+}
+
+@media screen and (min-width:500px) {
+    #new-entry img[alt="morning sky"] {
+        display: block;
+    }
 }
 
 /* ------------------
@@ -168,13 +352,34 @@ label {
 
 input {
     height: 53px;
-    border: solid 1px #ededed;
-    border-radius: 8px;
+    padding: 16px;
 }
 
 textarea {
+    padding: 24px;
+    max-width: 100%;
+}
+
+textarea,
+input {
     border: solid 1px #ededed;
     border-radius: 8px;
+    color: #555;
+    box-shadow: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input:focus,
+textarea:focus,
+input:focus-visible,
+textarea:focus-visible {
+    border: solid 1px #ededed !important;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0250A3;
+    outline: none;
+}
+
+#zip-code {
+    width: 150px;
 }
 
 /* ------------------
@@ -202,4 +407,21 @@ footer {
     overflow: hidden;
     padding: 0;
     position: absolute;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-row img {
+    max-width: none;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
 }
