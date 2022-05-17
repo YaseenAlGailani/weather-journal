@@ -6,12 +6,20 @@
 
 A simple app to Fetch data from OpenWeatherMap API, POST to it an  Express server along with user input and finally update the UI with fetched data from the Express server.
 
+All code written is my own, if you caught any performance issues or have any suggestions please don't hesitate to get in touch.
+
+Cheers
+
 ## Installation
 
 To use this project, first clone the repo on your device using the command below:
 
 ```git init```
 
-run the below to install all dependencies
+Run the below to install all dependencies
 
 ```npm install```
+
+Start the server using the command below, then navigate to localhost:3000 in your preferred browser (IE not supported)
+
+```npm start```
