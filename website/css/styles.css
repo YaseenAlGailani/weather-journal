@@ -64,12 +64,14 @@ h2 {
 
 
 .container {
+    display:block;
     width: 100%;
     max-width: 962px;
     margin: 0 auto;
     padding-left: 16px;
     padding-right: 16px;
     position: relative;
+    opacity: 1;
 }
 
 .framed {
@@ -94,7 +96,7 @@ h2 {
     right: 24px;
     box-shadow: none;
     transform: scale(1);
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-btn:active {
@@ -106,7 +108,7 @@ h2 {
     vertical-align: initial;
     transform: rotate(0);
     transform-origin: 50%;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-btn:hover img,
@@ -139,10 +141,6 @@ h2 {
     transform: scale(0.95);
 }
 
-#add-entry img {
-    margin-right: 8px;
-    vertical-align: middle;
-}
 
 @media screen and (min-width: 768px) {
     h1 {
@@ -182,6 +180,15 @@ h2 {
     margin-left: auto;
 }
 
+#add-entry img {
+    margin-right: 8px;
+    vertical-align: middle;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#add-entry.cancel img {
+    transform: rotate(45deg);
+}
 /* ----GRID------- */
 
 #entryHolder .entry {
@@ -330,6 +337,18 @@ h2 {
     display: none;
 }
 
+#error-box{
+    margin-bottom:8px;
+}
+
+#error-box .framed{
+    background-color:#FAD1D1;
+    border:solid 1px #f0675b;
+    color:#0250A3;
+    padding-right:70px;
+
+}
+
 @media screen and (min-width:500px) {
     #new-entry img[alt="morning sky"] {
         display: block;
@@ -382,6 +401,22 @@ textarea:focus-visible {
     width: 150px;
 }
 
+.backdrop{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    width:100%;
+    height:100%;
+    background-color:#fff;
+    opacity:0.7;
+    z-index: 100;
+}
+
 /* ------------------
         FOOTER 
 -------------------- */
@@ -425,3 +460,17 @@ footer {
 .flex-wrap {
     flex-wrap: wrap;
 }
+
+.transition{
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition.hidden{
+    display: block;
+    opacity:0;
+}
+
+.hidden{
+    display:none;
+}
+
