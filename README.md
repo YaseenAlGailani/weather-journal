@@ -1,6 +1,6 @@
 # The Weather Journal
 
-![TheWeatherJournal](http://yaseenalgailani.github.io/weather-journal/images/preview.png)
+![TheWeatherJournal](https://yaseenalgailani.github.io/weather-journal/website/images/preview.png)
 
 ## Project Description
 
