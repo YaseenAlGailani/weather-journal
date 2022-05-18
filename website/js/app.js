@@ -24,44 +24,46 @@ function init() {
     }
 
     generateButton.addEventListener('click', function () {
-        const zip = entryForm.querySelector('#zip').value;
-        const feelings = entryForm.querySelector('#feelings').value;
+        if (isFormValid(entryForm)) {
+            const zip = entryForm.querySelector('#zip').value;
+            const feelings = entryForm.querySelector('#feelings').value;
 
-        fadeOut(errorBox);
-        fadeOut(entryHolder);
-        fadeOut(newEntryButton);
-        fadeIn(backdrop);
+            fadeOut(errorBox);
+            fadeOut(entryHolder);
+            fadeOut(newEntryButton);
+            fadeIn(backdrop);
 
-        const coordURL = `http://api.openweathermap.org/geo/1.0/zip?zip=${zip},AU&appid=${apiKey}`;
+            const coordURL = `http://api.openweathermap.org/geo/1.0/zip?zip=${zip},AU&appid=${apiKey}`;
 
-        fetchCoordinates(coordURL).then((resp) => { //fetch coordinates for zipcode provided by user then use them to get weather data.
-            const weatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${resp.lat}&lon=${resp.lon}&appid=${apiKey}`;
-            return fetchWeatherData(weatherURL); 
+            fetchCoordinates(coordURL).then((resp) => { //fetch coordinates for zipcode provided by user then use them to get weather data.
+                const weatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${resp.lat}&lon=${resp.lon}&appid=${apiKey}`;
+                return fetchWeatherData(weatherURL);
 
-        }).then(resp => { 
-            const data = {
-                ...resp,
-                feelings,
-                dateToday
-            }
-            postData('/new-entry', data);
+            }).then(resp => {
+                const data = {
+                    ...resp,
+                    feelings,
+                    dateToday
+                }
+                postData('/new-entry', data);
 
-        }).then(() => {
-            return getData('/all');
+            }).then(() => {
+                return getData('/all');
 
-        }).then(resp => {
-            updateUI(placeholders, resp);
+            }).then(resp => {
+                updateUI(placeholders, resp);
 
-        }).then(() => {
-            newEntryButton.dispatchEvent(new Event('click'));
-            fadeOut(backdrop).then(fadeIn(entryHolder));
+            }).then(() => {
+                newEntryButton.dispatchEvent(new Event('click'));
+                fadeOut(backdrop).then(fadeIn(entryHolder));
 
-        }).catch(error => {
-            fadeIn(errorBox).then(() => {
-                errorBox.querySelector('.error').innerHTML = `Sorry, something went wrong!: ${error}`;
+            }).catch(error => {
+                fadeIn(errorBox).then(() => {
+                    errorBox.querySelector('.error').innerHTML = `Sorry, something went wrong!: ${error}`;
+                });
+                fadeOut(backdrop);
             });
-            fadeOut(backdrop);
-        });
+        }
     });
 
     closeButtons.forEach(button => {

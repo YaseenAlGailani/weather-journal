@@ -365,6 +365,20 @@ h2 {
     margin-bottom: 16px
 }
 
+.invalid input, 
+.invalid textarea{
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px red;
+}
+
+.invalid::after{
+    content:'This field is required';
+    color:red;
+    display: block;
+    left:0;
+    font-size: 14px;
+    margin-top:8px;
+}
+
 label {
     margin-bottom: 8px;
 }
@@ -392,7 +406,7 @@ input:focus,
 textarea:focus,
 input:focus-visible,
 textarea:focus-visible {
-    border: solid 1px #ededed !important;
+    border: solid 1px #ededed;
     box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0250A3;
     outline: none;
 }
