@@ -4,9 +4,9 @@
 
 ## Project Description
 
-A simple app to Fetch data from OpenWeatherMap API, POST to it an  Express server along with user input and finally update the UI with fetched data from the Express server.
+Hi there!, this is simple app to Fetch data from OpenWeatherMap API, POST to it an  Express server along with user input and finally update the UI with fetched data from the Express server.
 
-All code written is my own, if you caught any performance issues or have any suggestions please don't hesitate to get in touch.
+All code written is my own (feeling just a little bit proud of it "temporarily"!), if you caught any performance issues or have any suggestions I'll be more than happy to learn!
 
 Cheers
 
