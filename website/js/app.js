@@ -23,7 +23,8 @@ function init() {
         content: document.getElementById('content')
     }
 
-    generateButton.addEventListener('click', function () {
+    entryForm.querySelector('form').addEventListener('submit', function (event) {
+        event.preventDefault();
         if (isFormValid(entryForm)) {
             const zip = entryForm.querySelector('#zip').value;
             const feelings = entryForm.querySelector('#feelings').value;
@@ -45,6 +46,7 @@ function init() {
                     feelings,
                     dateToday
                 }
+                console.log(data);
                 postData('/new-entry', data);
 
             }).then(() => {
@@ -145,7 +147,7 @@ const fetchWeatherData = async url => {
         }
     }
     catch (error) {
-        console.error(`[Fetch Error] ${error}`);
+        console.error(`[Fetch W Error] ${error}`);
         throw error;
     }
 
