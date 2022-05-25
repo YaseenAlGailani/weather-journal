@@ -25,14 +25,14 @@
     <main>
         <div id="intro-message" class="container section-margin message">
             <div class="framed">
-                <button class="close-btn">
-                    <span class="sr-only">Cancel</span>
-                    <img aria-hidden="true" src="images/close_icon.svg" alt="close">
-                </button>
                 <h2>Hi there,</h2>
                 <p>The Weather Journal is just a simple way to express how you feel at the start of your day and tells you what's the weather like in your area.</p>
                 <p>Have a great day!</p>
             </div>
+            <button class="close-btn">
+                <span class="sr-only">Cancel</span>
+                <img aria-hidden="true" src="images/close_icon.svg" alt="close">
+            </button>
         </div>
         <div class="container flex-row">
             <button class="btn-primary hidden" id="add-entry">
@@ -40,15 +40,15 @@
                 <span class="text">New Entry</span>
             </button>
         </div>
-        <div role="a" id="error-box" class='container hidden'>
+        <div role="alert" id="error-box" class='container hidden'>
             <div class="framed">
-                <button class="close-btn">
-                    <span class="sr-only">Close</span>
-                    <img aria-hidden="true" src="images/close_icon.svg" alt="close">
-                </button>
                 <h2>Something went wrong</h2>
                 <p class="error"></p>
             </div>
+            <button class="close-btn">
+                <span class="sr-only">Close</span>
+                <img aria-hidden="true" src="images/close_icon.svg" alt="close">
+            </button>
         </div>
         <section id="new-entry" class="container section-margin">
             <div class="framed">
@@ -70,11 +70,11 @@
                 </form>
                 <div class="backdrop hidden">
                     <img src="images/spinner.svg" alt="Loading">
-                </divc>
-            </div>
+                    </divc>
+                </div>
         </section>
 
-        <section id="entryHolder" class="container section-margin hidden">
+        <section id="entryHolder" class="container section-margin hidden" role="region" aria-live="polite">
             <h2>Most Recent Entry</h2>
             <div class="entry framed">
                 <div class="date-box">

@@ -93,7 +93,8 @@ h2 {
     height: 37px;
     padding: 8px;
     position: absolute;
-    right: 24px;
+    right: 32px;
+    top:16px;
     box-shadow: none;
     transform: scale(1);
     transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
