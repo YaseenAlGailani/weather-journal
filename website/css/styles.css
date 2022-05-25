@@ -142,6 +142,7 @@ h2 {
 }
 
 
+
 @media screen and (min-width: 768px) {
     h1 {
         font-size: 2.625rem;
@@ -346,7 +347,17 @@ h2 {
     border:solid 1px #f0675b;
     color:#0250A3;
     padding-right:70px;
+}
 
+#error-box h2{
+    font-size:1.125rem;
+    margin-bottom:8px;
+    font-weight: 400;
+}
+
+#error-box .error{
+    font-size: 1rem;
+    color:#333;
 }
 
 @media screen and (min-width:500px) {

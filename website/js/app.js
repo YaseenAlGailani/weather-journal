@@ -61,7 +61,7 @@ function init() {
 
             }).catch(error => {
                 fadeIn(errorBox).then(() => {
-                    errorBox.querySelector('.error').innerHTML = `Sorry, something went wrong!: ${error}`;
+                    errorBox.querySelector('.error').innerHTML = error;
                 });
                 fadeOut(backdrop);
             });
@@ -125,7 +125,13 @@ const postData = async (url, data) => {
 const fetchCoordinates = async url => {
     try {
         const response = await fetch(url);
-        return (await response.json());
+        const responseJSON = await response.json();
+        if (responseJSON.cod >= 400) {
+            throw (`Coordinates: ${responseJSON.message}`);
+        }
+        else {
+            return (responseJSON);
+        }
     }
     catch (error) {
         console.error(`[Fetch Error] ${error}`);
@@ -139,16 +145,21 @@ const fetchWeatherData = async url => {
         const response = await fetch(url);
         const data = await response.json();
 
-        return {
-            temp: data.main.temp,
-            weatherDes: data.weather[0].main,
-            weatherID: data.weather[0].id,
-            location: data.name
+        if (data.cod >= 400) {
+            throw ({ code: data.code, message: data.message })
+        }
+        else {
+            return {
+                temp: data.main.temp,
+                weatherDes: data.weather[0].main,
+                weatherID: data.weather[0].id,
+                location: data.name
+            }
         }
     }
     catch (error) {
-        console.error(`[Fetch W Error] ${error}`);
-        throw error;
+        console.error(`[Fetch W Error] ${error.message}`);
+        throw error.message;
     }
 
 }
